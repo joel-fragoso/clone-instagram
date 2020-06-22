@@ -83,7 +83,7 @@ $ expo start
 ## Licença
 
 Este projeto está sobre a Licença do MIT,
-Confira em [LICENSE][LICENSE].
+Confira em [LICENSE](LICENSE).
 
 <hr>
-Feito com ❤️ por Joel Fragoso [LinkedIn](https://www.linkedin.com/in/joel-fragoso-0906611a9/)
+Feito com ❤️ por Joel Fragoso
