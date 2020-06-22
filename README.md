@@ -32,12 +32,12 @@
 </p>
 
 ## Tecnologias
-- [Expo](https://expo.com)
-- [React](https://react.com)
-- [React Navigation](https://reactnavigation.com)
-- [Json Server](https://json-server.com)
-- [Styled Components](https://styled-components.com)
-- [Typescript](https://typescript.com)
+- [Expo](https://expo.io/)
+- [React](https://pt-br.reactjs.org/)
+- [React Navigation](https://reactnavigation.org/)
+- [Json Server](https://github.com/typicode/json-server)
+- [Styled Components](https://styled-components.com/)
+- [Typescript](https://www.typescriptlang.org/)
 
 ## Como usar?
 
@@ -86,4 +86,5 @@ Este projeto está sobre a Licença do MIT,
 Confira em [LICENSE](LICENSE).
 
 <hr>
-Feito com ❤️ por Joel Fragoso
+
+Feito com ❤️ por Joel Fragoso &mdash; [LinkedIn](https://www.linkedin.com/in/joel-fragoso-0906611a9/)
