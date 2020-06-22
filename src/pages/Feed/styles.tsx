@@ -27,11 +27,6 @@ export const Name = styled.Text`
   color: #333;
 `;
 
-export const PostImage = styled.Image`
-  width: 100%;
-  aspect-ratio: 0.840;
-`;
-
 export const Description = styled.Text`
   padding: 15px;
   line-height: 18px;
