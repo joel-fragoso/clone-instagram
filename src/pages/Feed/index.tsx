@@ -10,6 +10,7 @@ import {
   Name,
   PostImage,
   Description,
+  Loading,
 } from './styles';
 
 export interface Feed {
@@ -29,10 +30,14 @@ const Feed: FC = () => {
   const [feed, setFeed] = useState<Array<Feed>>([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
-  async function loadPage(pageNumber = page) {
+  async function loadPage(pageNumber = page, shouldRefresh = false) {
     if (total && pageNumber > total) return;
     
+    setLoading(true);
+
     const response = await fetch(
       `http://192.168.1.26:3000/feed?_expand=author&_limit=5&_page=${pageNumber}`
     );
@@ -41,13 +46,22 @@ const Feed: FC = () => {
     const totalPosts = response.headers.get('X-Total-Count');
 
     setTotal(Math.ceil(Number(totalPosts) / 5));
-    setFeed([...feed, ...data]);
+    setFeed(shouldRefresh ? data : [...feed, ...data]);
     setPage(pageNumber + 1);
+    setLoading(false);
   }
 
   useEffect(() => {
     loadPage();
   }, []);
+
+  async function refreshList() {
+    setRefreshing(true);
+
+    await loadPage(1, true);
+
+    setRefreshing(false);
+  }
 
   return (
     <Container>
@@ -56,6 +70,9 @@ const Feed: FC = () => {
         keyExtractor={post => String(post.id)}
         onEndReached={() => loadPage()}
         onEndReachedThreshold={0.1}
+        onRefresh={refreshList}
+        refreshing={refreshing}
+        ListFooterComponent={loading && <Loading />}
         renderItem={({ item }) => (
           <Post>
             <Header>
